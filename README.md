@@ -36,4 +36,4 @@ Suas telas foram inspiradas no modelo original contendo algumas mudanças.
 ### Como executar o projeto
 1. Certifique-se se todos os componentes estão atualizados;
 2. Abra a pasta do projeto pela IDE e atualize as dependencias;
-rode o projeto.
+3. Rode o projeto.
