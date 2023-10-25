@@ -137,7 +137,7 @@ class QuintaPagina extends StatefulWidget {
 class _QuintaPaginaState extends State<QuintaPagina> {
   Future<List<Widget>> listCarrinho() async {
     try {
-      CollectionReference cardapioCollection = FirebaseFirestore.instance.collection('cardapio');
+      CollectionReference cardapioCollection = FirebaseFirestore.instance.collection('carrinho');
       QuerySnapshot querySnapshot = await cardapioCollection.get();
 
       List<Widget> items = [];
@@ -228,7 +228,7 @@ class _QuintaPaginaState extends State<QuintaPagina> {
 
   // Função para limpar a coleção cardapio
   void clearCardapioCollection() {
-    CollectionReference cardapioCollection = FirebaseFirestore.instance.collection('cardapio');
+    CollectionReference cardapioCollection = FirebaseFirestore.instance.collection('carrinho');
 
     // Obtém todos os documentos da coleção
     cardapioCollection.get().then((querySnapshot) {
@@ -243,7 +243,7 @@ class _QuintaPaginaState extends State<QuintaPagina> {
 
   // Função para completar o pedido
   void completeOrder() {
-    // Implemente a ação que desejar quando o botão for pressionado
+
   }
 
   @override
@@ -344,7 +344,7 @@ class _QuintaPaginaState extends State<QuintaPagina> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(40.0),
                     ),
-                    
+
 
                   ),
                   child: const Text(
@@ -556,6 +556,7 @@ class _QuartaPaginaState extends State<QuartaPagina> {
                               setState(() {
                                 searchText = value;
                               });
+                              readData();
                             },
                           ),
                         ),
@@ -566,7 +567,6 @@ class _QuartaPaginaState extends State<QuartaPagina> {
                             color: Colors.grey,
                           ),
                           onPressed: () {
-                            // Chame a função para ler os dados
                             readData();
                           },
                         ),
