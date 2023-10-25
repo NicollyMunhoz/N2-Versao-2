@@ -6,7 +6,6 @@ import 'package:firebase_core/firebase_core.dart';
 Future <void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  FirebaseFirestore.instance.collection('usuarios').doc('alunos').set({'Nome': 'Nicolly', 'Sobrenome': 'Munhoz'});
   FirebaseFirestore.instance.collection('cardapio').doc('comidas').set({'Nome': 'Veggie tomato mix', 'Preco': 'N1,900', 'id': '1'});
   runApp(const MyApp());
 }
@@ -564,7 +563,7 @@ class _QuartaPaginaState extends State<QuartaPagina> {
                           icon: Icon(
                             Icons.search,
                             size: 30,
-                            color: Colors.transparent,
+                            color: Colors.grey,
                           ),
                           onPressed: () {
                             // Chame a função para ler os dados
@@ -598,8 +597,8 @@ class ThirdPage extends StatelessWidget {
 
     try {
       await FirebaseFirestore.instance
-          .collection('cardapio')
-          .doc('comidas')
+          .collection('carrinho')
+          .doc('prato')
           .set(itemData);
       print('Item adicionado ao cardapio com sucesso!');
     } catch (e) {
